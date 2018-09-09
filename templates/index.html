@@ -1,43 +1,132 @@
+
 <html>
+
 <head>
-<title>宿舍温度监控</title>
+
+<title>51reboot</title>
+
+<meta charset='utf-8'>
+
 </head>
+
  
+
 <body>
-大家好！我是渣渣飞
+
+hello world
+
  
+
 <div id="container" style="height: 400px; min-width: 310px"></div>
+
  
+
 <script src='/static/jquery.js'></script>
+
 <script src='/static/highstock.js'></script>
+
 <script src='/static/exporting.js'></script>
+
 <script>
+
 $(function () {
+
     // 使用当前时区，否则东八区会差八个小时
+
     Highcharts.setOptions({
+
         global: {
+
             useUTC: false
+
         }
+
     });
+
     $.getJSON('/data', function (data) {
+
+ 
+
         // Create the chart
+
         $('#container').highcharts('StockChart', {
+
+        chart:{
+
+        events:{
+
+ 
+
+            load:function(){
+
+ 
+
+                var series = this.series[0]
+
+                setInterval(function(){
+
+                $.getJSON('/data',function(res){
+
+                    $.each(res,function(i,v){
+
+                        series.addPoint(v)
+
+                    })
+
+                })
+
+                },3000)
+
+            }
+
+        }
+
+        },
+
+ 
+
             rangeSelector : {
+
                 selected : 1
+
             },
+
+ 
+
             title : {
-                text : '宿舍温度'
+
+                text : '内存数据'
+
             },
+
+ 
+
             series : [{
-                name : '温度',
+
+                name : '本机内存',
+
                 data : data,
+
                 tooltip: {
+
                     valueDecimals: 2
+
                 }
+
             }]
+
         });
+
     });
+
+ 
+
 });
+
 </script>
+
+ 
+
 </body>
+
 </html>

@@ -13,6 +13,7 @@ while True:
     temp=bmp.read_temperature()
 
     pressure=bmp.read_pressure()
+    pressure=pressure/100
 
     altitude=bmp.read_altitude()
 

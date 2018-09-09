@@ -14,8 +14,10 @@ def index():
 @app.route('/data')
 def data():
     global tmp_time
+    conn1=sqlite3.connect('temp.db',check_same_thread=False)
+    c1=conn1.cursor()
     if tmp_time>0:
-        c1.execute('select * from BMP180 where TIME>?',('tmp_time/1000',))
+        c1.execute('select * from BMP180 where TIME>?',((tmp_time/1000),))
     else:
         c1.execute('select * from BMP180')
     arr=[]
@@ -23,6 +25,8 @@ def data():
         arr.append([i[1]*1000,i[0]])
     if len(arr)>0:
         tmp_time=arr[-1][0]
+    c1.close()
+    conn1.close()
     return json.dumps(arr)
 
 if __name__=='__main__':

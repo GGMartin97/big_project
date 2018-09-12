@@ -70,6 +70,6 @@ def alarm_system():
 if __name__=='__main__':
     while True:
         time.sleep(3)
-        work()
+        getdate()
         alarm_system()
         

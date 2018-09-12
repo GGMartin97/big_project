@@ -123,8 +123,8 @@ $(function () {
 });
 
 </script>
-<br>
-<div id="container" style="height: 400px; min-width: 310px"></div>
+<hr>
+<div id="container1" style="height: 400px; min-width: 310px"></div>
 
  
 
@@ -157,7 +157,7 @@ $(function () {
 
         // Create the chart
 
-        $('#container').highcharts('StockChart', {
+        $('#container1').highcharts('StockChart', {
 
         chart:{
 
@@ -203,7 +203,7 @@ $(function () {
 
             title : {
 
-                text : '温度数据'
+                text : '气压数据'
 
             },
 
@@ -211,7 +211,7 @@ $(function () {
 
             series : [{
 
-                name : '环境温度',
+                name : '环境气压',
 
                 data : data,
 

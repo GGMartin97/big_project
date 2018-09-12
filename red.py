@@ -13,7 +13,7 @@ mail_pass="iirdocuhfvznbdcj"
 
 sender = '759224761@qq.com'
 receivers = ['martinofcode@gmail.com']  
-print('test')
+
 
 camera=picamera.PiCamera()
 GPIO.setmode(GPIO.BCM)

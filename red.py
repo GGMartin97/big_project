@@ -7,13 +7,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
-time.sleep(1)
 mail_host="smtp.qq.com"  
 mail_user="759224761@qq.com"
 mail_pass="iirdocuhfvznbdcj"   
 
 sender = '759224761@qq.com'
 receivers = ['martinofcode@gmail.com']  
+print('test')
 
 camera=picamera.PiCamera()
 GPIO.setmode(GPIO.BCM)
@@ -27,16 +27,22 @@ def work():
         print('noting')
     else:
         camera.capture(timeString+'.jpg')
-        message = MIMEMultipart()
-        message['From'] = Header("306", 'utf-8')
-        message['To'] =Header("test", 'utf-8')
+        message = MIMEMultipart('related')
+        message['From'] = Header("759224761@qq.com", 'utf-8')
+        message['To'] =Header("martinofcode@gmail.com", 'utf-8')
         subject = '306 yyyy'
         message['Subject'] = Header(subject, 'utf-8')
-         
-        message.attach(MIMEText('hello world', 'plain', 'utf-8'))
-         
-        att1 = MIMEImage(open(timeString+'.jpg', 'rb').read())
-        att1.add_header('Content-ID','image.jpg')
+        
+        msgAlternative=MIMEMultipart('alternative')
+        message.attach(msgAlternative)
+        mail_msg="""
+        <p>python test </p>
+        <p><img src="cid:image1"</p>
+        """
+        msgAlternative.attach(MIMEText(mail_msg,'html','utf-8'))
+        atemp=timeString+'.jpg'
+        att1 = MIMEImage(open(atemp, 'rb').read())
+        att1.add_header('Content-ID','<image1>')
         message.attach(att1)
         try:
             smtpObj = smtplib.SMTP() 

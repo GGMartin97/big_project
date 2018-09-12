@@ -34,7 +34,7 @@ def data1():
     conn2=sqlite3.connect('temp.db',check_same_thread=False)
     c2=conn2.cursor()
     if tmp_time1>0:
-        c2.execute('select * from HOMEDATE where TIME>?',((tmp_time/1000),))
+        c2.execute('select * from HOMEDATE where TIME>?',((tmp_time1/1000),))
     else:
         c2.execute('select * from HOMEDATE')
     arr2=[]
@@ -44,7 +44,7 @@ def data1():
         tmp_time1=arr2[-1][0]
     c2.close()
     conn2.close()
-    return json.dumps(arr)
+    return json.dumps(arr2)
         
 
 

@@ -14,11 +14,11 @@ mail_user="759224761@qq.com"
 mail_pass="iirdocuhfvznbdcj"   
 sender = '759224761@qq.com'
 receivers = ['martinofcode@gmail.com']  
-camera=picamera.PiCamera()
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(13,GPIO.IN)
-camera.resolution=(2592,1944)
-camera.rotation=180
+#camera=picamera.PiCamera()
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(13,GPIO.IN)
+#camera.resolution=(2592,1944)
+#camera.rotation=180
 bmp=BMP180()
 
 
@@ -71,5 +71,5 @@ if __name__=='__main__':
     while True:
         time.sleep(3)
         getdate()
-        alarm_system()
+        #alarm_system()
         

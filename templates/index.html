@@ -93,11 +93,11 @@
 	<script>
 		setInterval(function(){
 			$.getJSON('/data3',function(data){
-				document.getElementById("demo").innerHTML=str(data)+&#176+'(mean)'
+				document.getElementById("test1").innerHTML=str(data)+&#176+'(mean)'
 			})}
 			,3000)
 	</script>
-	<p id="test1" class="fontone">
+	<p id="test1" style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
 		30&#176;(mean)
 	</p>	
 	</div>

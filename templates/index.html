@@ -1,23 +1,124 @@
-
+<!DOCTYPE html>
 <html>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-
-<title>306宿舍环境监控</title>
-
-<meta charset='utf-8'>
-
+	<title>hello</title>
+	<style type="text/css">
+		#background
+		{
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow:hidden;
+			display: none;
+		}
+		.poswrapper
+		{
+			width: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			height: 100%;
+			overflow: visible;
+			padding: 0;
+			border: 0;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		.graybackground
+		{
+			position: fixed;
+			z-index: 0;
+			width: 1080px;
+			margin-top: -8px;
+			margin-bottom: 0px;
+			margin-left: -540px;
+			background: #666666;
+			height: 1803px;
+		}
+		.container
+		{
+			border: 0px;
+			vertical-align: baseline;
+			position: relative;
+			width: 1000px;
+			margin: auto;
+			padding: 0px;
+		}
+		.tempone
+		{
+			width:330px;
+			background: #444444;
+			height: 220px;
+			float: left;
+			display: inline;
+		}
+		.temptwo
+		{
+			width: 480px;
+			height: 340px;
+			background: #444444;
+			float: left;
+			display: inline;
+			margin-top: 20px;
+		}
+	</style>
 </head>
-
- 
-
 <body>
-    <center>
-        大家好我是渣渣辉<br>
-<img src="http://192.168.1.219:8080/?action=stream" width="300" height="300">
-    </center>
+<img id="background" src="bg2.jpg" style="width: 1519px;height: 1012.67px;display: inline;">
 
-<div id="container" style="height: 400px; min-width: 310px"></div>
+
+
+
+<div class="poswrapper">
+	<div class="graybackground">
+	</div>
+</div>
+
+
+<div class="container">
+	<p style="font-size: 45px;font-weight: bold">
+		数据可视化
+	</p>
+	<div class="tempone" style="margin-left: 0;margin-right: 5px">
+	<p style="font-size: 15px;font-weight: bold;color: white;padding-left: 15px">
+		温度（来自BMP180）
+	</p>
+	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+		30&#176;(mean)
+	</p>	
+	</div>
+	
+
+	<div class="tempone" style="margin-right:5px;">
+	<p style="font-weight: bold;font-size: 15px;color: white;padding-left: 15px">
+		湿度（来自DTH11）
+	</p>
+	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+		48％
+	</p>
+
+	</div>
+	
+
+	<div class="tempone">
+	<p style="font-weight: bold;font-size:15px;color: white;padding-left: 15px ">
+		气压（来自BMP180）
+	</p>
+	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+		1005.8hPa
+	</p>
+	</div>
+	<div class="temptwo" style="margin-right: 40px;">
+		<p style="font-size: 55px;text-align: center;color: white;">
+			海拔
+		</p>
+	</div>
+
+	<div class="temptwo">
+		<p style="font-weight: bold;font-size: 15px;color: white;padding-left: 15px;margin-bottom: 0px;">实时环境监控</p>
+		<img src="http://192.168.1.219:8080/?action=stream" width="400" height="300" style="margin-left: 40px;">
+	</div>
+	<div id="container" style="height: 400px; min-width: 310px;float: left;display: inline;"></div>
 
  
 
@@ -125,7 +226,7 @@ $(function () {
 
 </script>
 <hr>
-<div id="container1" style="height: 400px; min-width: 310px"></div>
+<div id="container1" style="height: 400px; min-width: 310px;float: left;display: inline;"></div>
 
 
 <script>
@@ -227,8 +328,10 @@ $(function () {
 </script>
 
 
- 
+</div>
+
+
+
 
 </body>
-
 </html>

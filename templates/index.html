@@ -61,6 +61,13 @@
 			display: inline;
 			margin-top: 20px;
 		}
+		.fontone
+		{
+			font-weight: bold;
+			font-style: 55px;
+			color: white;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -83,7 +90,14 @@
 	<p style="font-size: 15px;font-weight: bold;color: white;padding-left: 15px">
 		温度（来自BMP180）
 	</p>
-	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+	<script>
+		setInterval(function(){
+			$.getJSON('/data3',function(data){
+				document.getElementById("demo").innerHTML=str(data)+&#176+'(mean)'
+			})}
+			,3000)
+	</script>
+	<p id="test1" class="fontone">
 		30&#176;(mean)
 	</p>	
 	</div>

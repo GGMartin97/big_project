@@ -1,6 +1,7 @@
 import sqlite3
 import json
 from flask import Flask,request,render_template
+import time
 
 app=Flask(__name__)
 tmp_time=0
@@ -46,6 +47,21 @@ def data1():
     conn2.close()
     return json.dumps(arr2)
         
+@app.route('/data3')
+def data3():
+    tmp_time3=int(time.time()-10)
+    conn3=sqlite3.connect('temp.db',check_same_thread=False)
+    c3=conn3.cursor()
+    c3.execute('select * from HOMEDATE where TIME>?',(tmp_time3,))
+    arr3=[]
+    for i in c3.fetchall():
+        arr3.append(i[0])
+    if len(arr3)>0:
+        return json.dumps(arr3[0])
+    else:
+        return json.dumps(100)
+
+
 
 
 

@@ -95,7 +95,7 @@
 			$.getJSON('/data3',function(data){
 				document.getElementById("test1").innerHTML=data+'&#176;'+"mean"
 			})}
-			,3000)
+			,2000)
 	</script>
 	<p id="test1" style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
 		30&#176;(mean)
@@ -118,7 +118,14 @@
 	<p style="font-weight: bold;font-size:15px;color: white;padding-left: 15px ">
 		气压（来自BMP180）
 	</p>
-	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+	<script>
+		setInterval(function(){
+			$.getJSON('/data4',function(data){
+				document.getElementById("test2").innerHTML=data+"hPa"
+			})}
+			,2000)
+	</script>
+	<p id=test2 style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
 		1005.8hPa
 	</p>
 	</div>

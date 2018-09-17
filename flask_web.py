@@ -63,7 +63,7 @@ def data3():
 
 @app.route('/data4')
 def data4():
-    tmp_time4=int(time.time()-10)
+    tmp_time4=int(time.time()-6)
     conn4=sqlite3.connect('temp.db',check_same_thread=False)
     c4=conn4.cursor()
     c4.execute('select * from HOMEDATE where TIME>?',(tmp_time4,))

@@ -35,7 +35,7 @@
 			background: #666666;
 			height: 1803px;
 		}
-		.container
+		.containerone
 		{
 			border: 0px;
 			vertical-align: baseline;
@@ -75,7 +75,7 @@
 </div>
 
 
-<div class="container">
+<div class="containerone">
 	<p style="font-size: 45px;font-weight: bold">
 		数据可视化
 	</p>
@@ -118,33 +118,43 @@
 		<p style="font-weight: bold;font-size: 15px;color: white;padding-left: 15px;margin-bottom: 0px;">实时环境监控</p>
 		<img src="http://192.168.1.219:8080/?action=stream" width="400" height="300" style="margin-left: 40px;">
 	</div>
-	<div id="container" style="height: 400px;width: 1000px;float: left;display: inline;"></div>
+
+
+	<div style="height: 30px;float: left;display: inline;background:#444444;margin-top: 20px;width: 1000px;">
+		<p style="font-size: 15px;color: white;padding-left: 15px;margin-top: 0px;">
+			温度趋势
+		</p>
+	</div>
+
+
+	<div id="container" style="height: 400px;width: 1000px;float: left;display: inline;">
+	</div>
 
  
 
-<script src='/static/jquery.js'></script>
+		<script src='/static/jquery.js'></script>
 
-<script src='/static/highstock.js'></script>
+		<script src='/static/highstock.js'></script>
 
-<script src='/static/exporting.js'></script>
+		<script src='/static/exporting.js'></script>
 
-<script>
+		<script>
 
-$(function () {
+		$(function () {
 
     // 使用当前时区，否则东八区会差八个小时
 
-    Highcharts.setOptions({
+    		Highcharts.setOptions({
 
-        global: {
+        		global: {
 
-            useUTC: false
+            		useUTC: false
 
-        }
+        		}
 
-    });
+    		});
 
-    $.getJSON('/data', function (data) {
+    	$.getJSON('/data', function (data) {
 
  
 
@@ -224,28 +234,34 @@ $(function () {
 
 });
 
-</script>
-<hr>
-<div id="container1" style="height: 400px; width: 1000px;float: left;display: inline;"></div>
+		</script>
+	<hr>
+	<div style="height: 30px;float: left;display: inline;background:#444444;margin-top: 20px;width: 1000px;">
+		<p style="font-size: 15px;color: white;padding-left: 15px;margin-top: 0px;">
+			气压趋势
+		</p>
+	</div>
+
+		<div id="container1" style="height: 400px; width: 1000px;float: left;display: inline;"></div>
 
 
-<script>
+		<script>
 
-$(function () {
+		$(function () {
 
     // 使用当前时区，否则东八区会差八个小时
 
-    Highcharts.setOptions({
+    		Highcharts.setOptions({
 
-        global: {
+       		global: {
 
             useUTC: false
 
-        }
+        	}
 
-    });
+    	});
 
-    $.getJSON('/data1', function (data) {
+    	$.getJSON('/data1', function (data) {
 
  
 

@@ -163,34 +163,36 @@
         $('#container').highcharts('StockChart', {
 
         chart:{
+        	backgroundColor:'#444444'
 
-        events:{
 
- 
-
-            load:function(){
+        	events:{
 
  
 
-                var series = this.series[0]
+            	load:function(){
 
-                setInterval(function(){
+ 
 
-                $.getJSON('/data',function(res){
+                	var series = this.series[0]
 
-                    $.each(res,function(i,v){
+                	setInterval(function(){
 
-                        series.addPoint(v)
+                	$.getJSON('/data',function(res){
 
-                    })
+                    	$.each(res,function(i,v){
 
-                })
+                        	series.addPoint(v)
 
-                },3000)
+                    	})
 
-            }
+                	})
 
-        }
+                	},3000)
+
+            	}
+
+        	}
 
         },
 
@@ -271,33 +273,34 @@
 
         chart:{
 
-        events:{
+        	backgroundColor:'#444444'
+        	events:{
 
  
 
-            load:function(){
+            	load:function(){
 
  
 
-                var series = this.series[0]
+                	var series = this.series[0]
 
-                setInterval(function(){
+                	setInterval(function(){
 
-                $.getJSON('/data1',function(res){
+                	$.getJSON('/data1',function(res){
 
-                    $.each(res,function(i,v){
+                    	$.each(res,function(i,v){
 
-                        series.addPoint(v)
+                        	series.addPoint(v)
 
-                    })
+                    	})
 
-                })
+                	})
 
-                },3000)
+                	},3000)
 
-            }
+            	}
 
-        }
+        	}
 
         },
 

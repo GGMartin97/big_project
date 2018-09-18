@@ -83,15 +83,15 @@ def data5():
 
 @app.route('/data6')
 def data6():
-    arr6=data_small.getCPUuse():
+    arr6=data_small.getCPUuse()
     return json.dumps(arr6)
 
 @app.route('/data7')
 def data7():
-    RAM_stats=data.small.getRAMinfo()
+    RAM_stats=data_small.getRAMinfo()
     RAM_total=round(int(RAM_stats[0])/1000,1)
     RAM_used=round(int(RAM_stats[1])/1000,1)
-    return json.dumps(RAM_used/RAM_total)
+    return json.dumps(int((RAM_used/RAM_total)*100))
 
 
 if __name__=='__main__':

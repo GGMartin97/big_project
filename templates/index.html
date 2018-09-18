@@ -135,8 +135,15 @@
 			<div style="height: 100px;width: 150px;padding-left: 15px;float: left;">
 				<p style="font-size: 25px;font-weight: bold;text-align: center;margin: 0px;padding-top: 26.1px;color: white;">CPU使用率:</p>
 			</div>
+			<script>
+				setInterval(function(){
+					$.getJSON('/data6',function(data){
+						document.getElementById("raspberry1").innerHTML=data+"%"
+				})}
+			,1000)
+			</script>
 			<div style="height: 100px;width: 315px; float: left;">
-				<p style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
+				<p id="raspberry1" style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
 					55%
 				</p>
 			</div>
@@ -145,8 +152,15 @@
 			<div style="height: 100px;width: 150px;padding-left: 15px;float: left;">
 				<p style="font-size: 25px;font-weight: bold;text-align: center;margin: 0px;padding-top: 26.1px;color: white;">内存占用率:</p>
 			</div>
+			<script>
+				setInterval(function(){
+					$.getJSON('/data7',function(data){
+						document.getElementById("raspberry2").innerHTML=data+"%"
+				})}
+			,1000)
+			</script>
 			<div style="height: 100px;width: 315px; float: left;">
-				<p style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
+				<p id="raspberry2" style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
 					55%
 				</p>
 			</div>
@@ -155,8 +169,15 @@
 			<div style="height: 100px;width: 150px;padding-left: 15px;float: left;">
 				<p style="font-size: 25px;font-weight: bold;text-align: center;margin: 0px;padding-top: 26.1px;color: white;">CPU温度:</p>
 			</div>
+			<script>
+				setInterval(function(){
+					$.getJSON('/data5',function(data){
+						document.getElementById("raspberry3").innerHTML=data+'$#176;'
+				})}
+			,1000)
+			</script>
 			<div style="height: 100px;width: 315px; float: left;">
-				<p style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
+				<p id="raspberry3" style="color: white;font-size: 40px;padding-left: 120px;font-weight: bold;margin:0px;padding-top: 25px">
 					55&#176;
 				</p>
 			</div>	

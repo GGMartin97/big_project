@@ -2,6 +2,7 @@ import sqlite3
 import json
 from flask import Flask,request,render_template
 import time
+import data_small
 
 app=Flask(__name__)
 tmp_time=0
@@ -75,6 +76,22 @@ def data4():
     else:
         return json.dumps(100)
 
+@app.route('/data5')
+def data5():
+    arr5=data_small.getCPUtemperature()
+    return json.dumps(arr5)
+
+@app.route('/data6')
+def data6():
+    arr6=data_small.getCPUuse():
+    return json.dumps(arr6)
+
+@app.route('/data7')
+def data7():
+    RAM_stats=data.small.getRAMinfo()
+    RAM_total=round(int(RAM_stats[0])/1000,1)
+    RAM_used=round(int(RAM_stats[1])/1000,1)
+    return json.dumps(RAM_used/RAM_total)
 
 
 if __name__=='__main__':

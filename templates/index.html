@@ -107,7 +107,14 @@
 	<p style="font-weight: bold;font-size: 15px;color: white;padding-left: 15px">
 		湿度（来自DTH11）
 	</p>
-	<p style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
+	<script>
+		setInterval(function(){
+			$.getJSON('/data8',function(data){
+					document.getElementById("test3").innerHTML=data+"%"
+			})}
+		,3000)
+	</script>
+	<p id='test3' style="font-weight: bold;font-size: 55px;color: white;text-align: center;">
 		48％
 	</p>
 

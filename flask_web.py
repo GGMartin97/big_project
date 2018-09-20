@@ -3,6 +3,9 @@ import json
 from flask import Flask,request,render_template
 import time
 import data_small
+import Adafruit_DHT
+
+
 
 app=Flask(__name__)
 tmp_time=0
@@ -96,7 +99,7 @@ def data7():
 @app.route('/data8')
 def data8():
     humidity,temp=Adafruit_DHT.read_retry(11,13)
-    return json.dumps(humidity)
+    return json.dumps(int(humidity))
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=8000,debug=True)

@@ -93,6 +93,10 @@ def data7():
     RAM_used=round(int(RAM_stats[1])/1000,1)
     return json.dumps(int((RAM_used/RAM_total)*100))
 
+@app.route('/data8')
+def data8():
+    humidity,temp=Adafruit_DHT.read_retry(11,13)
+    return json.dumps(humidity)
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=8000,debug=True)
